@@ -11,3 +11,6 @@ venv/
 # OS
 .DS_Store
 /720_Project_Mulongoti_Myra_dir
+
+#Reports
+/reports
