@@ -1,0 +1,96 @@
+LOGISTIC REGRESSION MODEL REPORT
+================================================================================
+
+Data
+- X shape before split: (110238, 13)
+- y shape before split: (110238,)
+- Train size: 88190
+- Test size:  22048
+- Train/test split: 80/20
+
+Class distribution
+- Training set before SMOTE: {'None': 66806, 'Injury': 21238, 'Fatal': 146}
+- Training set after SMOTE:  {'None': 66806, 'Injury': 66806, 'Fatal': 66806}
+- Test set:                 {'None': 16702, 'Injury': 5309, 'Fatal': 37}
+
+Preprocessing
+- Preprocessing pipeline was fit on the training split only.
+- Categorical features: impute most frequent + one-hot encode
+- Numerical features: impute median + standardize
+- Date/time features: extract simple date/time features + impute + standardize
+
+SMOTE
+- Applied only to the transformed training set.
+- Training rows before SMOTE: 88190
+- Training rows after SMOTE:  200418
+
+Logistic Regression parameters
+- solver: lbfgs
+- max_iter: 1000
+- random_state: 42
+
+Evaluation metrics
+- Accuracy:    0.6459
+- Macro F1:    0.3900
+- Weighted F1: 0.6693
+
+Confusion matrix
+- Label order: ['None', 'Injury', 'Fatal']
+[[11665  4670   367]
+ [ 2584  2574   151]
+ [   14    21     2]]
+
+Classification report
+              precision    recall  f1-score   support
+
+        None       0.82      0.70      0.75     16702
+      Injury       0.35      0.48      0.41      5309
+       Fatal       0.00      0.05      0.01        37
+
+    accuracy                           0.65     22048
+   macro avg       0.39      0.41      0.39     22048
+weighted avg       0.70      0.65      0.67     22048
+
+
+Top 10 coefficients by class (absolute value)
+- Class: Fatal
+    - cat__cross_street_name_1700      BUSHWICK AVENUE               : coef=8.355176
+    - num__longitude: coef=8.022653
+    - num__latitude: coef=7.619858
+    - cat__cross_street_name_1937      FLUSHING AVENUE               : coef=7.506309
+    - cat__on_street_name_WEST SHORE EXPRESSWAY: coef=7.468215
+    - cat__cross_street_name_Utica Avenue: coef=7.337566
+    - cat__on_street_name_CORNELIA STREET: coef=7.307327
+    - cat__cross_street_name_84-07     ROOSEVELT AVENUE: coef=7.100726
+    - cat__on_street_name_MARINE AVENUE: coef=7.074810
+    - cat__cross_street_name_84-46     120 STREET                    : coef=6.766631
+- Class: Injury
+    - cat__off_street_name_230 PLACE: coef=-4.012467
+    - num__longitude: coef=-3.971612
+    - cat__on_street_name_CORNELIA STREET: coef=-3.921766
+    - cat__off_street_name_DRIGGS AVENUE: coef=-3.797583
+    - num__latitude: coef=-3.774727
+    - cat__on_street_name_MARINE AVENUE: coef=-3.748609
+    - cat__cross_street_name_1700      BUSHWICK AVENUE               : coef=-3.700588
+    - cat__on_street_name_BLAKE AVE: coef=-3.700545
+    - cat__on_street_name_WEST SHORE EXPRESSWAY: coef=-3.688751
+    - cat__on_street_name_EAST 58 STREET                  : coef=-3.652894
+- Class: None
+    - cat__cross_street_name_1700      BUSHWICK AVENUE               : coef=-4.654588
+    - cat__cross_street_name_84-46     120 STREET                    : coef=-4.211432
+    - cat__cross_street_name_1937      FLUSHING AVENUE               : coef=-4.117925
+    - num__longitude: coef=-4.051042
+    - cat__cross_street_name_Utica Avenue: coef=-3.915756
+    - num__latitude: coef=-3.845132
+    - cat__on_street_name_WEST SHORE EXPRESSWAY: coef=-3.779464
+    - cat__off_street_name_226 STREET                      : coef=-3.661595
+    - cat__cross_street_name_3159      FLATBUSH AVENUE               : coef=-3.594779
+    - cat__contributing_factor_vehicle_1_Pedestrian/Bicyclist/Other Pedestrian Error/Confusion: coef=-3.556742
+
+Saved outputs
+- Report: figures/model_reports/logistic_regression_report.txt
+- Metrics JSON: figures/model_reports/logistic_regression_metrics.json
+- Confusion matrix: figures/model_reports/logistic_regression_confusion_matrix.npy
+- y_test: figures/model_reports/logistic_regression_y_test.npy
+- y_pred: figures/model_reports/logistic_regression_y_pred.npy
+- Coefficients CSV: figures/model_reports/logistic_regression_coefficients.csv

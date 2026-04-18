@@ -1,0 +1,10 @@
+pandas
+numpy
+scikit-learn
+requests
+python-dateutil
+joblib
+fastparquet
+matplotlib
+pyarrow
+imbalanced-learn

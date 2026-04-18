@@ -1,0 +1,46 @@
+MAKE DATASET REPORT
+================================================================================
+
+Cleaning summary
+- Rows before cleaning: 112320
+- Rows after cleaning:  110238
+- Empty/blank string cells converted to NaN: 6
+- Duplicate collision_id rows removed: 2082
+- Negative values clipped to 0 in number_of_* columns: 0
+
+Target distribution
+- None: 83508
+- Injury: 26547
+- Fatal: 183
+
+Feature column groups
+- CATEGORICAL_COLUMNS (9): ['borough', 'zip_code', 'on_street_name', 'cross_street_name', 'off_street_name', 'contributing_factor_vehicle_1', 'contributing_factor_vehicle_2', 'vehicle_type_code_1', 'vehicle_type_code_2']
+- NUMERICAL_COLUMNS (2): ['latitude', 'longitude']
+- DATE_TIME_COLUMNS (2): ['crash_date', 'crash_time']
+
+number_of_* columns found
+- Count: 8
+- Columns: ['number_of_persons_injured', 'number_of_persons_killed', 'number_of_pedestrians_injured', 'number_of_pedestrians_killed', 'number_of_cyclist_injured', 'number_of_cyclist_killed', 'number_of_motorist_injured', 'number_of_motorist_killed']
+
+Saved Xraw info
+- Xraw shape: (110238, 13)
+- Xraw columns: ['borough', 'zip_code', 'on_street_name', 'cross_street_name', 'off_street_name', 'contributing_factor_vehicle_1', 'contributing_factor_vehicle_2', 'vehicle_type_code_1', 'vehicle_type_code_2', 'latitude', 'longitude', 'crash_date', 'crash_time']
+
+Missing values in Xraw
+- vehicle_type_code_1: 110238
+- vehicle_type_code_2: 110238
+- cross_street_name: 89341
+- off_street_name: 45338
+- zip_code: 35244
+- borough: 35228
+- on_street_name: 24579
+- contributing_factor_vehicle_2: 17552
+- latitude: 11209
+- longitude: 11209
+- contributing_factor_vehicle_1: 379
+- crash_date: 0
+- crash_time: 0
+
+Cleaned dataset columns
+- Total columns in cleaned dataset: 32
+- Column names: ['crash_date', 'crash_time', 'borough', 'zip_code', 'latitude', 'longitude', 'location', 'on_street_name', 'off_street_name', 'cross_street_name', 'number_of_persons_injured', 'number_of_persons_killed', 'number_of_pedestrians_injured', 'number_of_pedestrians_killed', 'number_of_cyclist_injured', 'number_of_cyclist_killed', 'number_of_motorist_injured', 'number_of_motorist_killed', 'contributing_factor_vehicle_1', 'contributing_factor_vehicle_2', 'contributing_factor_vehicle_3', 'contributing_factor_vehicle_4', 'contributing_factor_vehicle_5', 'collision_id', 'vehicle_type_code1', 'vehicle_type_code2', 'vehicle_type_code_3', 'vehicle_type_code_4', 'vehicle_type_code_5', 'severity_class', 'vehicle_type_code_1', 'vehicle_type_code_2']

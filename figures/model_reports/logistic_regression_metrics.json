@@ -1,0 +1,72 @@
+{
+  "model": "LogisticRegression",
+  "random_state": 42,
+  "test_size": 0.2,
+  "smote_used": true,
+  "train_rows_before_smote": 88190,
+  "train_rows_after_smote": 200418,
+  "test_rows": 22048,
+  "accuracy": 0.6459089259796807,
+  "macro_f1": 0.3900096259024721,
+  "weighted_f1": 0.6693426194354734,
+  "labels": [
+    "None",
+    "Injury",
+    "Fatal"
+  ],
+  "confusion_matrix": [
+    [
+      11665,
+      4670,
+      367
+    ],
+    [
+      2584,
+      2574,
+      151
+    ],
+    [
+      14,
+      21,
+      2
+    ]
+  ],
+  "classification_report": {
+    "None": {
+      "precision": 0.817850382107551,
+      "recall": 0.698419350975931,
+      "f1-score": 0.7534312933957694,
+      "support": 16702.0
+    },
+    "Injury": {
+      "precision": 0.35430144528561597,
+      "recall": 0.48483706912789604,
+      "f1-score": 0.4094162557658661,
+      "support": 5309.0
+    },
+    "Fatal": {
+      "precision": 0.0038461538461538464,
+      "recall": 0.05405405405405406,
+      "f1-score": 0.00718132854578097,
+      "support": 37.0
+    },
+    "accuracy": 0.6459089259796807,
+    "macro avg": {
+      "precision": 0.39199932707977364,
+      "recall": 0.4124368247192936,
+      "f1-score": 0.3900096259024721,
+      "support": 22048.0
+    },
+    "weighted avg": {
+      "precision": 0.7048651017177957,
+      "recall": 0.6459089259796807,
+      "f1-score": 0.6693426194354735,
+      "support": 22048.0
+    }
+  },
+  "lr_params": {
+    "solver": "lbfgs",
+    "max_iter": 1000,
+    "random_state": 42
+  }
+}

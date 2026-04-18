@@ -1,0 +1,82 @@
+RANDOM FOREST MODEL REPORT
+================================================================================
+
+Data
+- X shape before split: (110238, 13)
+- y shape before split: (110238,)
+- Train size: 88190
+- Test size:  22048
+- Train/test split: 80/20
+
+Class distribution
+- Training set before SMOTE: {'None': 66806, 'Injury': 21238, 'Fatal': 146}
+- Training set after SMOTE:  {'Injury': 66806, 'None': 66806, 'Fatal': 66806}
+- Test set:                 {'None': 16702, 'Injury': 5309, 'Fatal': 37}
+
+Preprocessing
+- Preprocessing pipeline was fit on the training split only.
+- Categorical features: impute most frequent + one-hot encode
+- Numerical features: impute median + standardize
+- Date/time features: extract simple date/time features + impute + standardize
+
+SMOTE
+- Applied only to the transformed training set.
+- Training rows before SMOTE: 88190
+- Training rows after SMOTE:  200418
+
+Random Forest parameters
+- n_estimators: 200
+- max_depth: None
+- min_samples_split: 2
+- min_samples_leaf: 1
+- random_state: 35
+- n_jobs: -1
+- class_weight: None
+
+Evaluation metrics
+- Accuracy:    0.7592
+- Macro F1:    0.3768
+- Weighted F1: 0.7144
+
+Confusion matrix
+- Label order: ['None', 'Injury', 'Fatal']
+[[15739   962     1]
+ [ 4310   999     0]
+ [   31     6     0]]
+
+Classification report
+              precision    recall  f1-score   support
+
+        None       0.78      0.94      0.86     16702
+      Injury       0.51      0.19      0.27      5309
+       Fatal       0.00      0.00      0.00        37
+
+    accuracy                           0.76     22048
+   macro avg       0.43      0.38      0.38     22048
+weighted avg       0.72      0.76      0.71     22048
+
+
+Top 15 feature importances
+- dt__crash_hour: 0.046412
+- dt__crash_year: 0.040771
+- num__longitude: 0.032980
+- dt__crash_dayofweek: 0.032929
+- dt__crash_month: 0.032916
+- num__latitude: 0.032308
+- cat__contributing_factor_vehicle_1_Unsafe Speed: 0.030060
+- cat__contributing_factor_vehicle_1_Unspecified: 0.018381
+- cat__zip_code_11207: 0.015888
+- cat__off_street_name_BROADWAY: 0.015443
+- cat__contributing_factor_vehicle_1_Driver Inattention/Distraction: 0.014294
+- cat__on_street_name_BELT PARKWAY                    : 0.012055
+- cat__borough_BROOKLYN: 0.010366
+- cat__contributing_factor_vehicle_1_Failure to Yield Right-of-Way: 0.009888
+- cat__cross_street_name_772       EDGEWATER ROAD                : 0.009630
+
+Saved outputs
+- Report: figures/model_reports/random_forest_report.txt
+- Metrics JSON: figures/model_reports/random_forest_metrics.json
+- Confusion matrix: figures/model_reports/random_forest_confusion_matrix.npy
+- y_test: figures/model_reports/random_forest_y_test.npy
+- y_pred: figures/model_reports/random_forest_y_pred.npy
+- Feature importance CSV: figures/model_reports/random_forest_feature_importance.csv

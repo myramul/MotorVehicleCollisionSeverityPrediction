@@ -1,0 +1,76 @@
+{
+  "model": "RandomForestClassifier",
+  "random_state": 35,
+  "test_size": 0.2,
+  "smote_used": true,
+  "train_rows_before_smote": 88190,
+  "train_rows_after_smote": 200418,
+  "test_rows": 22048,
+  "accuracy": 0.7591618287373004,
+  "macro_f1": 0.37680015383069093,
+  "weighted_f1": 0.7144146599772632,
+  "labels": [
+    "None",
+    "Injury",
+    "Fatal"
+  ],
+  "confusion_matrix": [
+    [
+      15739,
+      962,
+      1
+    ],
+    [
+      4310,
+      999,
+      0
+    ],
+    [
+      31,
+      6,
+      0
+    ]
+  ],
+  "classification_report": {
+    "None": {
+      "precision": 0.7838147410358566,
+      "recall": 0.9423422344629385,
+      "f1-score": 0.8557990321352835,
+      "support": 16702.0
+    },
+    "Injury": {
+      "precision": 0.5078800203355364,
+      "recall": 0.18817103032586174,
+      "f1-score": 0.27460142935678944,
+      "support": 5309.0
+    },
+    "Fatal": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 37.0
+    },
+    "accuracy": 0.7591618287373004,
+    "macro avg": {
+      "precision": 0.43056492045713096,
+      "recall": 0.3768377549296001,
+      "f1-score": 0.37680015383069093,
+      "support": 22048.0
+    },
+    "weighted avg": {
+      "precision": 0.7160562786983962,
+      "recall": 0.7591618287373004,
+      "f1-score": 0.7144146599772632,
+      "support": 22048.0
+    }
+  },
+  "rf_params": {
+    "n_estimators": 200,
+    "max_depth": null,
+    "min_samples_split": 2,
+    "min_samples_leaf": 1,
+    "random_state": 35,
+    "n_jobs": -1,
+    "class_weight": null
+  }
+}
