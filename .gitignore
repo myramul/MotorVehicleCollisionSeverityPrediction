@@ -1,4 +1,13 @@
-/.DS_Store
-/.env
-/.venv
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
 /720_Project_Mulongoti_Myra_dir
