@@ -4,9 +4,9 @@
 This project studies a multiclass classification problem using the NYC Open Data Motor Vehicle Collisions dataset. The goal is to predict crash severity from crash information. 
 
 The target variable is a severity class with three possible values:
-        - **None**: no injuries and no deaths
-        - **Injury**: at least one injury and no deaths
-        - **Fatal**: at least one death
+- **None**: no injuries and no deaths
+- **Injury**: at least one injury and no deaths
+- **Fatal**: at least one death
 
 The project compares the performance of two ML models:
     1) Logistic Rgression
@@ -53,10 +53,10 @@ To create charts/visualizations use the following commans:
     `python code/make_charts.py`
 
 The following charts are generated and saved to `figures/`: 
-    - `class_distr.png` 
-    - `bar_most_common_contr_factors.png`
-    - `model_metric_comparison.png`
-    - `rf_per_class_metrics.png`
-    - `lr_per_class_metrics.png`
-    - `rf_confusion_matrix.png`
-    - `lr_confusion_matrix.png`
+- `class_distr.png` 
+- `bar_most_common_contr_factors.png`
+- `model_metric_comparison.png`
+- `rf_per_class_metrics.png`
+- `lr_per_class_metrics.png`
+- `rf_confusion_matrix.png`
+- `lr_confusion_matrix.png`
