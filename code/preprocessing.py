@@ -3,12 +3,6 @@ preprocessing.py
 
 Defines the preprocessing pipeline used by model scripts.
 
-Expected usage in model scripts:
-    from preprocessing import build_preprocessing_pipeline
-
-    preprocessor = build_preprocessing_pipeline()
-    X_train_proc = preprocessor.fit_transform(X_train)
-    X_test_proc = preprocessor.transform(X_test)
 """
 
 

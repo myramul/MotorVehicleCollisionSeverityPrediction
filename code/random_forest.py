@@ -50,6 +50,7 @@ FEATURE_IMPORTANCE_PATH = OUTPUT_DIR / "random_forest_feature_importance.csv"
 RANDOM_STATE = 35
 TEST_SIZE = 0.20
 
+# Define hyperparameters to be used
 RF_PARAMS = {
     "n_estimators": 200,
     "max_depth": None,
@@ -60,7 +61,7 @@ RF_PARAMS = {
     "class_weight": None,
 }
 
-
+# helper function to save text report
 def save_text_report(report_text, path):
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
@@ -70,11 +71,13 @@ def save_text_report(report_text, path):
 def main():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
+    # Load preodefined Xraw and y that were made in make_dataset.py
     X = pd.read_parquet(XRAW_PATH)
     y = np.load(Y_PATH, allow_pickle=True)
 
     y = np.asarray(y).astype(str)
 
+     # Train test split 80-20 stratified
     X_train, X_test, y_train, y_test = train_test_split(
         X,
         y,
@@ -83,21 +86,28 @@ def main():
         stratify=y,
     )
 
+    # Load preprocessing pipeline defined in preprocessing.py
     preprocessor = build_preprocessing_pipeline()
 
+    # Fit preprocessor on train, transform test
     X_train_processed = preprocessor.fit_transform(X_train)
     X_test_processed = preprocessor.transform(X_test)
 
+    # ectract feature names
     feature_names = preprocessor.get_feature_names_out()
 
+    # for imbalanced classes solution: use SMOTE to generate synthetic minotiy class samples
     smote = SMOTE(random_state=RANDOM_STATE)
     X_train_resampled, y_train_resampled = smote.fit_resample(X_train_processed, y_train)
 
+    # Build model and fit on training
     model = RandomForestClassifier(**RF_PARAMS)
     model.fit(X_train_resampled, y_train_resampled)
 
+    # make predictions
     y_pred = model.predict(X_test_processed)
 
+    # compute metrics, save data, write report txt file
     labels = ["None", "Injury", "Fatal"]
 
     acc = accuracy_score(y_test, y_pred)

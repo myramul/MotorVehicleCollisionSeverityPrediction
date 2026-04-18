@@ -15,3 +15,4 @@ venv/
 #Reports
 /reports
 reports/
+data/.DS_Store

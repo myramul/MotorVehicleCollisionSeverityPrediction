@@ -1,7 +1,7 @@
 """
 make_charts.py
 
-Rebuild charts from saved dataset/model artifacts.
+Generate charts from saved dataset/model artifacts.
 
 Charts saved to figures/:
     - class_distr.png
@@ -48,7 +48,7 @@ COLORS = [
 ]
 
 DPI = 300 # quality of images
-CLASS_ORDER = ["None", "Injury", "Fatal"]
+CLASS_ORDER = ["None", "Injury", "Fatal"] # for consistency
 
 
 def ensure_output_dir():
@@ -59,7 +59,7 @@ def load_json(path):
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-
+# Class distribution histogram
 def plot_class_distribution(df):
     counts = df["severity_class"].value_counts().reindex(CLASS_ORDER, fill_value=0)
 
@@ -83,7 +83,7 @@ def plot_class_distribution(df):
     plt.savefig(os.path.join(OUTPUT_DIR, "class_distr.png"), dpi=DPI)
     plt.close()
 
-
+# Most common contributing factors bar chart
 def plot_most_common_contributing_factors(df, top_n=10):
     if "contributing_factor_vehicle_1" not in df.columns:
         print("Skipping contributing factor chart: column not found.")
@@ -117,7 +117,7 @@ def plot_most_common_contributing_factors(df, top_n=10):
     plt.savefig(os.path.join(OUTPUT_DIR, "bar_most_common_contr_factors.png"), dpi=DPI)
     plt.close()
 
-
+# Model metric comparisom bar
 def plot_model_metric_comparison(rf_metrics, lr_metrics):
     metric_names = ["Accuracy", "Macro F1", "Weighted F1"]
     rf_values = [
@@ -159,7 +159,7 @@ def plot_model_metric_comparison(rf_metrics, lr_metrics):
     plt.savefig(os.path.join(OUTPUT_DIR, "model_metric_comparison.png"), dpi=DPI)
     plt.close()
 
-
+# Per class metric bar for each model
 def plot_per_class_metrics(metrics_json, out_name, title, color):
     report = metrics_json["classification_report"]
 
@@ -197,7 +197,7 @@ def plot_per_class_metrics(metrics_json, out_name, title, color):
     plt.savefig(os.path.join(OUTPUT_DIR, out_name), dpi=DPI)
     plt.close()
 
-
+# Confusion matrix heat map, per model
 def plot_confusion_matrix(cm, labels, out_name, title):
     plt.figure(figsize=(6, 5))
     plt.imshow(cm, cmap="Greens")
