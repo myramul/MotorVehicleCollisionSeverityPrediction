@@ -1,6 +1,4 @@
 # Prediciting NYC motor vehicle collision severity
-Myra Mulongoti
-May 3 2026
 
 ## Project Description
 This project studies a multiclass classification problem using the NYC Open Data Motor Vehicle Collisions dataset. The goal is to predict crash severity from crash information. 
